@@ -1,0 +1,38 @@
+{
+  "name": "@agent-tools/paint",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Native Codex image generation CLI and Amp tool",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "bin": {
+    "paint": "bin/paint.js"
+  },
+  "agentTools": {
+    "plugin": "dist/paint.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    "legacy/callback.py",
+    "legacy/test_callback.py",
+    "README.md"
+  ],
+  "scripts": {
+    "format": "prettier --write package.json README.md eslint.config.js 'src/*.js' 'bin/*.js' 'test/*.js'",
+    "check": "prettier --check package.json README.md eslint.config.js 'src/*.js' 'bin/*.js' 'test/*.js' && eslint .",
+    "test": "node --test test/*.test.js",
+    "test:python": "python3 -B -m unittest discover -s legacy -v",
+    "test:browser": "PAINT_BROWSER_TEST=1 python3 -B -m unittest discover -s legacy -v",
+    "build": "esbuild src/plugin.js --bundle --platform=node --format=esm --target=node20.19 --outfile=dist/paint.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "eslint": "9.39.1",
+    "globals": "16.5.0",
+    "esbuild": "0.25.12",
+    "prettier": "3.7.4"
+  }
+}

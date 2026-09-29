@@ -1,0 +1,29 @@
+{
+  "name": "@agent-tools/messages-login",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "One-time local Google Messages login handoff helper",
+  "main": "dist/src/main.js",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "electron .",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "test:electron": "npm run build && electron test/portal-navigation.electron.cjs",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check . && tsc --noEmit",
+    "bundle": "npm run build && node scripts/bundle.mjs"
+  },
+  "dependencies": {
+    "electron": "44.4.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/node": "22.18.6",
+    "typescript": "5.9.3"
+  }
+}

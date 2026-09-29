@@ -1,0 +1,23 @@
+{
+	"name": "@agent-tools/switchboard",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Connect Amp threads to an existing Switchboard phone service",
+	"agentTools": {
+		"plugin": "dist/switchboard.js"
+	},
+	"scripts": {
+		"format": "biome check --write .",
+		"check": "biome check . && tsc --noEmit",
+		"test": "npm run build && node --test test/*.test.js",
+		"build": "esbuild index.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/switchboard.js"
+	},
+	"devDependencies": {
+		"@ampcode/plugin": "0.0.0-20260925001753-g49e7366",
+		"@biomejs/biome": "2.5.14",
+		"@types/node": "22.18.6",
+		"typescript": "7.0.2",
+		"esbuild": "0.25.12"
+	}
+}

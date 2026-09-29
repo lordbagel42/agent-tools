@@ -1,0 +1,39 @@
+{
+  "name": "@agent-tools/portal",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Thread-owned, PIN-protected web previews behind your HTTPS ingress",
+  "bin": {
+    "portal": "dist/cli.mjs",
+    "portal-server": "dist/daemon.mjs"
+  },
+  "agentTools": {
+    "plugin": "dist/portal.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "test": "node scripts/test.js",
+    "test:browser": "node --test test/browser/*.test.js",
+    "format": "prettier --write .",
+    "check": "prettier --check . && eslint .",
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "http-proxy": "1.18.1",
+    "jose": "5.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "eslint": "9.39.1",
+    "esbuild": "0.25.12",
+    "globals": "16.5.0",
+    "prettier": "3.6.2",
+    "ws": "8.18.3"
+  }
+}

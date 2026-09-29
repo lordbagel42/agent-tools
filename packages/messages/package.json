@@ -1,0 +1,45 @@
+{
+  "name": "@agent-tools/messages",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A server-side TypeScript API for a paired Android Google Messages session",
+  "bin": {
+    "messages": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "docs/architecture.md"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('node:fs').chmodSync('dist/src/cli.js', 0o755)\"",
+    "start": "node dist/src/cli.js",
+    "pair": "node dist/src/cli.js --pairing-port 8788",
+    "test": "npm run build && node --test --test-concurrency=1 dist/test/*.test.js",
+    "test:live": "npm run build && node --test dist/test/live.js",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check . && tsc --noEmit"
+  },
+  "dependencies": {
+    "fastify": "^5.12.5",
+    "playwright": "^1.63.0",
+    "proper-lockfile": "^4.1.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/node": "^20.19.0",
+    "@types/proper-lockfile": "^4.1.4",
+    "typescript": "~5.9.3"
+  }
+}

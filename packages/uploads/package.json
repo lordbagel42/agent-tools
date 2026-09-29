@@ -1,0 +1,32 @@
+{
+  "name": "@agent-tools/uploads",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Single-use uploads with expiring private files and webhooks on Cloudflare Workers",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "format": "biome format --write .",
+    "check": "biome check . && wrangler types --check && tsc --noEmit",
+    "test": "vitest run",
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "types": "wrangler types",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.1.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@cloudflare/vitest-plugin": "1.3.0",
+    "@cloudflare/workers-types": "5.20260928.1",
+    "@types/node": "24.19.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.142.0"
+  }
+}

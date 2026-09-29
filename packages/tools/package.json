@@ -1,0 +1,33 @@
+{
+  "name": "@agent-tools/tools",
+  "version": "0.1.0",
+  "description": "Explicit, user-local installation and fast-forward updates for agent-tools",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "bin": {
+    "tools": "bin/tools.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    "README.md"
+  ],
+  "agentTools": {
+    "plugin": "dist/tools.js"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "check": "eslint . && prettier --check .",
+    "test": "node --test",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "eslint": "9.39.1",
+    "globals": "16.5.0",
+    "prettier": "^3.6.2"
+  }
+}

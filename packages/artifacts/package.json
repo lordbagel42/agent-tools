@@ -1,0 +1,31 @@
+{
+  "name": "@agent-tools/artifacts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted, versioned HTML artifacts with an OAuth-protected MCP publisher",
+  "scripts": {
+    "dev": "bun --watch src/main.ts",
+    "start": "bun src/main.ts",
+    "bootstrap": "bun src/bootstrap.ts",
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check . && tsc --noEmit",
+    "test": "bun test",
+    "build": "bun build src/main.ts src/bootstrap.ts --target=bun --packages=external --outdir=dist"
+  },
+  "dependencies": {
+    "@better-auth/mcp": "1.7.6",
+    "@modelcontextprotocol/server": "2.1.0",
+    "better-auth": "1.7.6",
+    "elysia": "1.4.30",
+    "marked": "17.0.4",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@types/bun": "1.4.2",
+    "bun": "1.4.2",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Preserve",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["@cloudflare/vitest-plugin/types", "node"],
+    "lib": ["ES2022"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts", "worker-configuration.d.ts"]
+}

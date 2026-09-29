@@ -1,0 +1,32 @@
+{
+  "name": "@agent-tools/tunnel",
+  "version": "0.1.0",
+  "description": "Thread-owned loopback SSH tunnels for agents and OAuth callbacks",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "bin": {
+    "tunnel": "dist/cli.js"
+  },
+  "agentTools": {
+    "plugin": "dist/tunnel.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "check": "prettier --check . && eslint .",
+    "test": "node --test test/*.test.js",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "esbuild": "^0.25.12",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.4"
+  }
+}

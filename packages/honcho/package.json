@@ -1,0 +1,26 @@
+{
+	"name": "@agent-tools/honcho",
+	"version": "0.1.0",
+	"description": "Opt-in Honcho persistent memory for Amp",
+	"private": true,
+	"type": "module",
+	"agentTools": {
+		"plugin": "dist/honcho"
+	},
+	"scripts": {
+		"test": "node test.js",
+		"typecheck": "tsc --noEmit",
+		"format": "biome format --write .",
+		"lint": "biome check .",
+		"check": "npm run lint && npm run typecheck",
+		"build": "node build.js"
+	},
+	"devDependencies": {
+		"@ampcode/plugin": "0.0.0-20260925001753-g49e7366",
+		"@biomejs/biome": "2.5.14",
+		"@types/bun": "1.4.2",
+		"bun": "1.4.2",
+		"esbuild": "^0.25.10",
+		"typescript": "7.0.2"
+	}
+}

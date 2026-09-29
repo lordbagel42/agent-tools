@@ -1,0 +1,21 @@
+{
+  "name": "agent-tools",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "format": "prettier --write '*.md' package.json && npm run format --workspaces --if-present",
+    "check": "prettier --check '*.md' package.json && npm run check --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": {
+    "prettier": "3.7.4"
+  }
+}

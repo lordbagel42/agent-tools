@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Send a file · Uploads</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/upload.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <svg class="mark" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="32" height="32" rx="8" stroke="currentColor" stroke-width="2" />
+          <path d="M20 27V13m-6 6 6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h1 id="heading">Send a file</h1>
+        <p id="intro">One file. A private handoff. This link closes after your upload.</p>
+      </header>
+
+      <div id="status" role="status" aria-live="polite">Checking your upload link…</div>
+
+      <form id="upload-form" hidden>
+        <dl class="details">
+          <div><dt>File limit</dt><dd id="size-limit"></dd></div>
+          <div><dt>Deleted after</dt><dd id="retention"></dd></div>
+        </dl>
+        <fieldset id="fields">
+          <legend>File to send</legend>
+          <label for="file">Choose a file</label>
+          <input id="file" name="file" type="file" required aria-describedby="file-note" />
+          <p class="hint" id="file-note">Only the recipient can download your file. Check it before sending; a completed upload cannot be replaced.</p>
+          <button id="send" type="submit" disabled>Upload file</button>
+        </fieldset>
+        <progress id="progress" max="100" value="0" aria-label="Upload progress" hidden></progress>
+        <p class="hint" id="link-expiry"></p>
+      </form>
+
+      <footer>
+        <p>Share only with the person who requested this file.</p>
+        <p>Encrypted in transit and stored privately. This is not end-to-end encryption.</p>
+      </footer>
+      <noscript>JavaScript is required to use this private upload link.</noscript>
+    </main>
+  </body>
+</html>
