@@ -17,6 +17,7 @@ ports, or replace a running service.
 | [switchboard](packages/switchboard/README.md)       | Phone questions, steering, and stop acknowledgements  | An existing Switchboard backend                 |
 | [artifacts](packages/artifacts/README.md)           | Versioned HTML/Markdown publishing through OAuth MCP  | Bun, persistent storage, HTTPS wildcard ingress |
 | [uploads](packages/uploads/README.md)               | Single-use file uploads, expiry, and signed webhooks  | Cloudflare Workers, Durable Objects, and R2     |
+| [email](packages/email/README.md)                   | Scoped inbox reads and signed incoming-mail webhooks  | Cloudflare Email Routing and Durable Objects    |
 
 ## Install and update
 
@@ -55,7 +56,9 @@ its database, restart its service, or deploy it.
 
 `uploads` is a separately deployed Cloudflare Worker with a remote MCP endpoint,
 not a local CLI/plugin. Follow its [deployment instructions](packages/uploads/README.md).
-Neither service is deployed or updated by `tools update`.
+`email` is also a separately deployed Worker; its [routing setup](packages/email/README.md)
+requires reviewing existing mail delivery before any catch-all changes.
+These services are not deployed or updated by `tools update`.
 
 ## An OAuth callback on your Mac
 

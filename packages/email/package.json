@@ -1,0 +1,40 @@
+{
+  "name": "@agent-tools/email",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Durable scoped inboxes and signed incoming-mail webhooks over MCP",
+  "bin": {
+    "agent-email": "./bin/agent-email.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "types": "wrangler types",
+    "format": "biome format --write .",
+    "check": "biome check . && node --check bin/agent-email.mjs && wrangler types --check && tsc --noEmit",
+    "test": "vitest run && npm run test:cli",
+    "test:cli": "node --test cli-test/*.test.mjs",
+    "build": "wrangler deploy --dry-run --outdir dist"
+  },
+  "dependencies": {
+    "@better-auth/core": "1.7.6",
+    "@better-auth/mcp": "1.7.6",
+    "@better-auth/oauth-provider": "1.7.6",
+    "@modelcontextprotocol/server": "2.1.0",
+    "better-auth": "1.7.6",
+    "better-call": "1.4.0",
+    "postal-mime": "2.6.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@cloudflare/vitest-plugin": "1.3.0",
+    "@types/node": "24.19.0",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.142.0"
+  }
+}

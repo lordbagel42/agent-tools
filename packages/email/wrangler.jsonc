@@ -1,0 +1,41 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "agent-tools-email",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-03",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "PUBLIC_ORIGIN": "https://mail-api.example.com",
+    "MAIL_DOMAIN": "example.com",
+    "MAIN_INBOX": "inbox",
+    "OWNER_EMAIL": "owner@example.net",
+    "OAUTH_PRINCIPAL_ID": "owner",
+    "FORWARD_TO": "",
+    "WEBHOOK_URLS": "[]"
+  },
+  "secrets": { "required": ["ACCESS_POLICY", "BETTER_AUTH_SECRET"] },
+  "d1_databases": [
+    {
+      "binding": "AUTH_DB",
+      "database_name": "agent-tools-email-auth",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "send_email": [
+    { "name": "MAILER", "destination_address": "owner@example.net" }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "INBOXES", "class_name": "Inbox" },
+      { "name": "DIRECTORY", "class_name": "Directory" }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Inbox", "Directory"] }],
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "invocation_logs": false }
+  }
+}
